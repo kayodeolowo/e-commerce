@@ -5,6 +5,7 @@ import {
   Typography,
   IconButton,
 } from "@material-tailwind/react";
+import {FiShoppingCart} from 'react-icons/fi';
  
 export default function Header() {
   const [openNav, setOpenNav] = useState(false);
@@ -60,7 +61,19 @@ export default function Header() {
           variant="small"
           className=" cursor-pointer py-1.5 ml-auto lg:ml-0 font-normal"
         >
-          <span>Cart</span>
+           <div  className=' lg:mt-2  mr-4 lg:mr-0 text-black '> 
+            <span  className='relative'>
+            <FiShoppingCart className='text-[2rem] ' />
+            <span
+              // className={`w-5 h-5 absolute -top-1 -right-2 text-center text-sm  rounded-full bg-primaryred text-white grid place-items-center ${
+              //   cart.length > 0 ? 'grid' : 'hidden'
+              // }`}
+            >
+              {/* {cart?.length} */}
+            </span>
+          </span>
+                            
+              </div>
         </Typography>
         <div className="hidden lg:block">{navList}</div>
         
