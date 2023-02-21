@@ -6,9 +6,12 @@ import {
   IconButton,
 } from "@material-tailwind/react";
 import {FiShoppingCart} from 'react-icons/fi';
+import { useShoppingCart } from "../context/ShoppingCartContext";
+import { Link } from "react-router-dom";
  
 export default function Header() {
   const [openNav, setOpenNav] = useState(false);
+  const {openCart, cartQty} = useShoppingCart()
  
   useEffect(() => {
     window.addEventListener(
@@ -61,19 +64,21 @@ export default function Header() {
           variant="small"
           className=" cursor-pointer py-1.5 ml-auto lg:ml-0 font-normal"
         >
-           <div  className=' lg:mt-2  mr-4 lg:mr-0 text-black '> 
-            <span  className='relative'>
-            <FiShoppingCart className='text-[2rem] ' />
-            <span
-              // className={`w-5 h-5 absolute -top-1 -right-2 text-center text-sm  rounded-full bg-primaryred text-white grid place-items-center ${
-              //   cart.length > 0 ? 'grid' : 'hidden'
-              // }`}
-            >
-              {/* {cart?.length} */}
-            </span>
-          </span>
-                            
-              </div>
+          <Link to="/cart"> 
+                <div     className=' lg:mt-2  mr-4 lg:mr-0 text-black  '> 
+                    <span  className='relative'>
+                  <button   onClick={openCart}>  <FiShoppingCart className='text-[2rem] ' />  </button>
+                    <span
+                      className={`w-5 h-5 absolute -top-1 -right-2 text-center text-sm  rounded-full bg-green-600 text-white grid place-items-center ${
+                        cartQty > 0 ? 'grid' : 'hidden'
+                      }`}
+                    >
+                      {cartQty}
+                    </span>
+                  </span>
+                                
+                  </div>
+          </Link>
         </Typography>
         <div className="hidden lg:block">{navList}</div>
         
