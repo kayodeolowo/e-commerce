@@ -9,19 +9,21 @@ type StoreItemsProps= {
     id: number
     name: string
     price: number
-    imgUrl: string
+    image: string
+    title: string
 }
 
-export function StoreItem ({id, name, price, imgUrl}: StoreItemsProps) {
+export function StoreItem ({id, name, price,title, image}: StoreItemsProps) {
     const {getItemsQty, increaseCartQty, removeFromCart} = useShoppingCart()
     const remove = () => toast('Item Removed');
     const addToCart = () => toast('Added to Cart');
     const qty =getItemsQty(id);
    return <div> 
-        <img className="h-20 w-20" src={imgUrl}/>
+        <img className="h-20 w-20" src={image}/>
 
         <div className="flex space-x-4"> 
             <h1> {name}   </h1>
+            <p> {title} </p>
             <h1> {formatCurrency (price)} </h1>
         </div>
 
