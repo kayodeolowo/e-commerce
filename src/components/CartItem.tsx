@@ -5,13 +5,14 @@ import { formatCurrency } from "../utils/formatCurrency"
 
 type CartItemProps = {
     id: number
-    qty: number
+    
 }
 
 
-export function CartItem ({id, qty}: CartItemProps) {
-    const {removeFromCart } = useShoppingCart()
-    const item = storeItems.find(i => i.id ==id)
+export function CartItem ({id,}: CartItemProps) {
+    const {getItemsQty, increaseCartQty, decreaseCartQty, removeFromCart} = useShoppingCart()
+    const qty =getItemsQty(id);
+    const item = storeItems.find(i => i.id ===id)
     if (item == null) return null
 
     return(
@@ -25,8 +26,11 @@ export function CartItem ({id, qty}: CartItemProps) {
                 
             </div>
 
-            <div> {formatCurrency(item.price  * qty )} </div>
+            <div className=""> {formatCurrency(item.price  * qty )} </div>
             <Button onClick={()=>removeFromCart(item.id)}> Remove </Button>
+             <Button onClick={()=>decreaseCartQty(id)}> - </Button>
+            <p> {qty} in cart </p>
+            <Button onClick={()=>increaseCartQty(id)}> + </Button>
         </div>
     )
 }

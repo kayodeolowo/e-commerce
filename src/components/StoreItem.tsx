@@ -25,13 +25,8 @@ export function StoreItem ({id, name, price, imgUrl}: StoreItemsProps) {
             {qty === 0  ? (
                 <Button onClick={()=>increaseCartQty(id)} size="sm" color="green" ripple={true}> Add to cart </Button>
             ): (<div className=""> 
-                    <div className="flex items-center space-x-3"> 
-                        
-                        <Button onClick={()=>decreaseCartQty(id)}> - </Button>
-                        <p> {qty} in cart </p>
-                        <Button onClick={()=>increaseCartQty(id)}> + </Button>    
-                     </div>
-                   <div> <Button onClick={()=>removeFromCart(id)} color="red" size="sm"> Remove </Button> </div>      
+                    
+                   <div> <Button onClick={()=>removeFromCart(id)} color="red" size="sm"> Remove From Cart </Button> </div>      
              </div>)}
         </div>
    </div>  
