@@ -2,11 +2,14 @@ import { Button } from "@material-tailwind/react"
 import { useShoppingCart } from "../context/ShoppingCartContext"
 import storeItems from "../data/items.json"
 import { formatCurrency } from "../utils/formatCurrency"
+import toast, { Toaster } from 'react-hot-toast';
 
 type CartItemProps = {
     id: number
     
 }
+
+const remove = () => toast('Item Removed');
 
 
 export function CartItem ({id,}: CartItemProps) {
@@ -14,6 +17,8 @@ export function CartItem ({id,}: CartItemProps) {
     const qty =getItemsQty(id);
     const item = storeItems.find(i => i.id ===id)
     if (item == null) return null
+
+    //how to fetch api with axios in typescript react?
 
     return(
         <div> 
@@ -27,10 +32,14 @@ export function CartItem ({id,}: CartItemProps) {
             </div>
 
             <div className=""> {formatCurrency(item.price  * qty )} </div>
-            <Button onClick={()=>removeFromCart(item.id)}> Remove </Button>
+            <Button onClick={()=>{removeFromCart(item.id); remove()}}> Remove </Button>
+             <Toaster/>
              <Button onClick={()=>decreaseCartQty(id)}> - </Button>
             <p> {qty} in cart </p>
             <Button onClick={()=>increaseCartQty(id)}> + </Button>
+           
         </div>
     )
+
+   
 }

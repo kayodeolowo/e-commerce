@@ -2,6 +2,7 @@ import React from 'react'
 import storeItems from '../data/items.json'
 import { StoreItem } from '../components/StoreItem'
 
+
 const Store = () => {
   return (
     <div className=''>

@@ -6,6 +6,8 @@ type ShoppingCartProviderProps = {
     children: ReactNode
 }
 
+
+
 type ShoppingCartContext = {
     openCart: () => void
      closeCart: () => void
@@ -94,3 +96,6 @@ export function ShoppingCartProvider ( {children}:ShoppingCartProviderProps) {
     </ShoppingCartContext.Provider>
     )
 }
+
+
+//how to add two onclick functions to a button in react?
