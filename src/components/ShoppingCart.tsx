@@ -18,7 +18,7 @@ const ShoppingCart = () => {
 
           <div> 
            Total {formatCurrency(cartItems.reduce((total, CartItem)=>{
-                const item =data.find((i: { id: number }) => i.id === CartItem.id)
+                const item =  data.find((i: { id: number }) => i.id === CartItem.id) 
                 return total + (item?.price || 0) *  CartItem.qty
             }, 0)
             )}
