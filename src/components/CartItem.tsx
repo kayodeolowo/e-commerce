@@ -18,7 +18,7 @@ export function CartItem ({id,}: CartItemProps) {
     const item = storeItems.find(i => i.id ===id)
     if (item == null) return null
 
-    //how to fetch api with axios in typescript react?
+    
 
     return(
         <div> 
