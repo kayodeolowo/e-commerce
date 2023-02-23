@@ -3,6 +3,7 @@ import { useShoppingCart } from "../context/ShoppingCartContext"
 import storeItems from "../data/items.json"
 import { formatCurrency } from "../utils/formatCurrency"
 import toast, { Toaster } from 'react-hot-toast';
+import { useDataContext } from '../context/ProductsProvider'
 
 type CartItemProps = {
     id: number
@@ -14,18 +15,19 @@ const remove = () => toast('Item Removed');
 
 export function CartItem ({id,}: CartItemProps) {
     const {getItemsQty, increaseCartQty, decreaseCartQty, removeFromCart} = useShoppingCart()
+         const { data, isLoading } = useDataContext();
     const qty =getItemsQty(id);
-    const item = storeItems.find(i => i.id ===id)
+    const item = data.find((i: { id: number; }) => i.id ===id)
     if (item == null) return null
 
     
 
     return(
         <div> 
-            <img src={item.imgUrl} className="h-20 w-20" />
+            <img src={item.image} className="h-20 w-20" />
 
             <div> 
-                {item.name} {""} {qty >1 && (<span>x{qty} </span>)}
+                {item.title} {""} {qty >1 && (<span>x{qty} </span>)}
                 {formatCurrency(item.price)}
                  
                 

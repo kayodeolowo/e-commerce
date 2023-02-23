@@ -7,28 +7,22 @@ import { useDataContext } from '../context/ProductsProvider'
 
 
 const ShoppingCart = () => {
-    const { data, isLoading } = useDataContext();
-
-
-    if (isLoading) {
-    return <div>Loading...</div>;
-  }
-
-
+    const {cartItems} = useShoppingCart()
+     const { data, isLoading } = useDataContext();
   return (
     <div>Shoppingcart
         <div> 
-             {data.map((item: any) => (
+             {cartItems.map(item => (
             <CartItem key={item.id} {...item} />
           ))}
 
-          {/* <div> 
-           Total {formatCurrency(data.reduce((total:any, CartItem:any)=>{
-                const item =data.find((i: { id: any }) => i.id === CartItem.id)
+          <div> 
+           Total {formatCurrency(cartItems.reduce((total, CartItem)=>{
+                const item =data.find((i: { id: number }) => i.id === CartItem.id)
                 return total + (item?.price || 0) *  CartItem.qty
             }, 0)
             )}
-          </div> */}
+          </div>
          
         </div>
     </div>
