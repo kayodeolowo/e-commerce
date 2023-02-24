@@ -1,6 +1,5 @@
 import { Button } from "@material-tailwind/react"
 import { useShoppingCart } from "../context/ShoppingCartContext"
-import storeItems from "../data/items.json"
 import { formatCurrency } from "../utils/formatCurrency"
 import toast, { Toaster } from 'react-hot-toast';
 import { useDataContext } from '../context/ProductsProvider'
@@ -17,10 +16,15 @@ export function CartItem ({id,}: CartItemProps) {
     const {getItemsQty, increaseCartQty, decreaseCartQty, removeFromCart} = useShoppingCart()
          const { data, isLoading } = useDataContext();
     const qty =getItemsQty(id);
-    const item = data.find((i: { id: number; }) => i.id ===id)
+    const item = data?.find((i: { id: number; }) => i.id ===id)
     if (item == null) return null
 
-    
+
+
+    if (isLoading) {
+    return <div>Loading...</div>;
+  }
+   
 
     return(
         <div> 
