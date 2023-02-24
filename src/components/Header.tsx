@@ -21,19 +21,23 @@ export default function Header() {
   
  
   return (
-    <div className="mx-auto mt-4 shadow px-6 container ">
-      <div className=" w-full  flex items-center justify-between text-blue-gray-900">
+    <div className="mx-auto  px-6 container h-14 ">
+      <div className="  w-full mt-4  lg:mt-2 flex items-center justify-between text-blue-gray-900">
         
          <Link to="/"> 
-             <span>KayStore</span>
+             <div className="flex items-center">
+              <img className="h-8" src="./images/logo.png" alt="logo"/> 
+              <h1 className="font-bold text-[#f04952] text-sm ml-2 ">KRAYA STORES</h1>
+               
+             </div>
       
          </Link>
 
          
          <Link to="/cart"> 
-                <div     className=' lg:mt-2  mr-4 lg:mr-0 text-black  '> 
+                <div     className=' mt-[-1rem] ml-[-2rem] lg:mr-0 text-black fixed '> 
                     <span  className='relative'>
-                  <button   onClick={openCart}>  <FiShoppingCart className='text-[2rem] ' />  </button>
+                  <button   onClick={openCart}>  <img className='h-8 md:h-10' src="./images/cart.png" />  </button>
                     <span
                       className={`w-5 h-5 absolute -top-1 -right-2 text-center text-sm  rounded-full bg-red-600 text-white grid place-items-center ${
                         cartQty > 0 ? 'grid' : 'hidden'

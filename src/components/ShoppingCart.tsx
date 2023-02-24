@@ -9,7 +9,7 @@ const ShoppingCart = () => {
     const {cartItems} = useShoppingCart()
      const { data, isLoading } = useDataContext();
   return (
-    <div>
+    <div className='mx-auto  px-6 container'>
         <div> 
              {cartItems.map(item => (
             <CartItem key={item.id} {...item} />

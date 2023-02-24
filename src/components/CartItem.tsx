@@ -27,7 +27,7 @@ export function CartItem ({id,}: CartItemProps) {
    
 
     return(
-        <div> 
+        <div className=""> 
             <img src={item.image} className="h-20 w-20" />
 
             <div> 
