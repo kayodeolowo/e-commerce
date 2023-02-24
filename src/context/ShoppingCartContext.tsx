@@ -36,7 +36,7 @@ export function ShoppingCartProvider ( {children}:ShoppingCartProviderProps) {
         []
     )
 
-    console.log(cartItems, "cartItems")
+    //console.log(cartItems, "cartItems")
     const [isOpen, setIsOpen] = useState(false)
 
     function getItemsQty  (id:number) {

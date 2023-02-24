@@ -25,7 +25,7 @@ export const DataProvider: React.FC<PropsWithChildren<{}>> = ({ children }) => {
       const result = await axios.get("https://fakestoreapi.com/products");
       setData(result.data);
       setIsLoading(false);
-      console.log(result.data, "products")
+      //console.log(result.data, "products")
     };
     fetchData();
   }, []);

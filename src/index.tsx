@@ -5,6 +5,7 @@ import App from './App';
 import { ThemeProvider } from "@material-tailwind/react";
 import { BrowserRouter } from 'react-router-dom';
 import { DataProvider } from './context/ProductsProvider';
+import Scrolltop from './components/Scrolltotop';
 
 
 const root = ReactDOM.createRoot(
@@ -15,6 +16,7 @@ root.render(
      <ThemeProvider>
         <BrowserRouter>
           <DataProvider> 
+            <Scrolltop/>
             <App />
           </DataProvider>
         </BrowserRouter>

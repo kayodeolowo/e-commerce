@@ -1,4 +1,3 @@
-import { Button } from "@material-tailwind/react"
 import { useShoppingCart } from "../context/ShoppingCartContext"
 import { formatCurrency } from "../utils/formatCurrency"
 import toast, { Toaster } from 'react-hot-toast';
@@ -21,29 +20,52 @@ export function CartItem ({id,}: CartItemProps) {
 
 
 
-    if (isLoading) {
-    return <div>Loading...</div>;
-  }
+    
    
 
     return(
         <div className=""> 
-            <img src={item.image} className="h-20 w-20" />
+           <div className="w-10/12 hover:cursor-pointer mt-4 sm:w-8/12 mx-auto shadow-xl   mb-6 py-5 rounded-lg px-2 "> 
+               <div className="flex justify-between mt-4"> 
 
-            <div> 
-                {item.title} {""} {qty >1 && (<span>x{qty} </span>)}
-                {formatCurrency(item.price)}
+                     <img  src={item.image} className="h-20 w-18 " />
+                     <h1 className=" text-green-900 font-bold mt-2 ">  {formatCurrency(item.price  * qty )}</h1>
+               </div>
+
+            <div className="flex flex-col"> 
+                <div className="flex flex-col"> 
+                    <h1 className="text-sm mt-2"> {item.title} {""} </h1>
+                  
+                </div>
+  
+             <div className=" mt-2 rounded-md   w-full justify-between flex"> 
+                  <div className="flex items-center border-2 rounded-full w-fit space-x-4  py-1 border-green-500 px-4"> 
+                     <button className="text-xl font-bold text-red-800" onClick={()=>decreaseCartQty(id)}> <img className="h-5" src="./images/sub.png" alt=""/> </button>
+                     <h1> {qty}  </h1>
+                    <button onClick={()=>increaseCartQty(id)}>  <img className="h-5" src="./images/add.png" alt=""/> </button>
+                   
+                  </div>
+
+                   <button onClick={()=>{removeFromCart(item.id); remove()}}> <img className="h-8" src="./images/delete.jpg" alt=""/>  </button>
+
+                    <Toaster  toastOptions={{
+                        className: '',
+                        style: {
+                        border: '1px solid #e90a0a',
+                        padding: '10px',
+                        color: '#f8062e',
+                        },
+                    }}/>
+                    
+                  
+                </div>
+               
                  
-                
-            </div>
-
-            <div className=""> {formatCurrency(item.price  * qty )} </div>
-            <Button onClick={()=>{removeFromCart(item.id); remove()}}> Remove </Button>
-             <Toaster/>
-             <Button onClick={()=>decreaseCartQty(id)}> - </Button>
-            <p> {qty} in cart </p>
-            <Button onClick={()=>increaseCartQty(id)}> + </Button>
-           
+                   
+                   
+                    
+                </div>
+           </div>
         </div>
     )
 

@@ -16,7 +16,7 @@ type StoreItemsProps= {
 export function StoreItem ({id, name, price,title, image}: StoreItemsProps) {
     const {getItemsQty, increaseCartQty, removeFromCart} = useShoppingCart()
     const remove = () => toast('Item Removed');
-    const addToCart = () => toast('Added to Cart');
+    const addToCart = () => toast.success('Added to Cart');
     const qty =getItemsQty(id);
    return <div className=""> 
        <div className="border-2 border-gray-100 shadow-lg mx-auto rounded-lg hover:cursor-pointer hover:shadow-2xl  sm:w-[15rem] w-3/5 lg:w-[16rem] mb-4 mt-4 py-4 "> 
@@ -29,10 +29,10 @@ export function StoreItem ({id, name, price,title, image}: StoreItemsProps) {
 
         <div className="mt-4 w-fit mx-auto"> 
             {qty === 0  ? (
-                <button className="border-2 rounded-3xl px-3 text-sm text-gray-200 py-1  bg-[#013D29] hover:bg-white hover:text-[#013D29] hover:border-[#013D29] transition duration-300 " onClick={()=>{increaseCartQty(id);addToCart()}} > Add to Cart </button>
+                <button className="border-2 rounded-3xl px-3 text-sm text-gray-200 py-1  bg-[#2f9b77] hover:bg-white hover:text-[#013D29] hover:border-[#013D29] transition duration-300 ease-in " onClick={()=>{increaseCartQty(id);addToCart()}} > Add to Cart </button>
             ): (<div className=""> 
                     
-                   <div> <button className="border-2 rounded-3xl px-3 text-sm text-white py-1  bg-red-500 hover:bg-white hover:text-red-500 hover:border-red-500 transition duration-300 "  onClick={()=>{removeFromCart(id); remove()}} > Remove From Cart </button> </div>   
+                   <div> <button className="border-2 rounded-3xl px-3 text-sm text-white py-1  bg-red-500 hover:bg-white hover:text-red-500 hover:border-red-500 transition duration-300 ease-in "  onClick={()=>{removeFromCart(id); remove()}} > Remove From Cart </button> </div>   
                       
              </div>)}
         </div>
