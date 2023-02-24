@@ -1,9 +1,7 @@
 import { useState, useEffect } from "react";
 import {
   Navbar,
-  MobileNav,
-  Typography,
-  IconButton,
+ 
 } from "@material-tailwind/react";
 import {FiShoppingCart} from 'react-icons/fi';
 import { useShoppingCart } from "../context/ShoppingCartContext";
@@ -23,16 +21,13 @@ export default function Header() {
   
  
   return (
-    <Navbar className="mx-auto container border-2 border-red-400">
-      <div className=" mx-auto flex items-center justify-between text-blue-gray-900">
-        <Typography
-          as="a"
-          href="/"
-          variant="small"
-          className=" cursor-pointer py-1.5 font-normal"
-        >
-          <span>KayStore</span>
-        </Typography>
+    <div className="mx-auto mt-4 shadow px-6 container ">
+      <div className=" w-full  flex items-center justify-between text-blue-gray-900">
+        
+         <Link to="/"> 
+             <span>KayStore</span>
+      
+         </Link>
 
          
          <Link to="/cart"> 
@@ -40,7 +35,7 @@ export default function Header() {
                     <span  className='relative'>
                   <button   onClick={openCart}>  <FiShoppingCart className='text-[2rem] ' />  </button>
                     <span
-                      className={`w-5 h-5 absolute -top-1 -right-2 text-center text-sm  rounded-full bg-green-600 text-white grid place-items-center ${
+                      className={`w-5 h-5 absolute -top-1 -right-2 text-center text-sm  rounded-full bg-red-600 text-white grid place-items-center ${
                         cartQty > 0 ? 'grid' : 'hidden'
                       }`}
                     >
@@ -54,6 +49,6 @@ export default function Header() {
        
       </div>
       
-    </Navbar>
+    </div>
   );
 }

@@ -8,7 +8,7 @@ import ShoppingCart from './components/ShoppingCart';
 function App() {
   return (
    <ShoppingCartProvider> 
-       <div className="container mx-auto">
+       <div className="">
       <Header/>
 
       <Routes> 
