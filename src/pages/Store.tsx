@@ -16,7 +16,7 @@ const Store:React.FC = () => {
 
 
   return (
-    <div className='container mx-auto '>
+    <div className='container max-w-[1140px] mx-auto '>
         <div className=' bg-[#f1a457] grid lg:grid-cols-2 rounded shadow-lg  md:pl-20' > 
 
           <div className='text-[#013D29] px-6 font-semibold text-2xl sm:text-3xl mt-10 ' > 

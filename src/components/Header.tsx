@@ -21,7 +21,7 @@ export default function Header() {
   
  
   return (
-    <div className="mx-auto border-b border-gray-100  px-6 container h-14 ">
+    <div className="mx-auto border-b border-gray-100  px-6 lg:px-2 container max-w-[1140px] h-14 ">
       <div className="  w-full mt-4  lg:mt-2 flex items-center justify-between text-blue-gray-900">
         
          <Link to="/"> 
