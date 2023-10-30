@@ -1,6 +1,6 @@
 import React from 'react'
 import storeItems from '../data/items.json'
-import { StoreItem } from '../components/StoreItem'
+import {  StoreItemCard } from '../components/StoreItemCard'
 import { useDataContext } from '../context/ProductsProvider'
 import MoonLoader from 'react-spinners/MoonLoader'
 
@@ -35,7 +35,9 @@ const Store:React.FC = () => {
 
         <div className='sm:grid mt-8 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 xl:gap-x-4  transition duration-300 ease-in '> 
             {data.map((item: any)=>(
-          <div className=' ' key={item.id}> <StoreItem {...item}/>  </div>
+          <div  key={item.id}> 
+          <StoreItemCard {...item}/>  
+          </div>
           
         ))}
         </div>
