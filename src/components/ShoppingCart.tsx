@@ -9,13 +9,8 @@ import MoonLoader from 'react-spinners/MoonLoader'
 
 const ShoppingCart = () => {
     const {cartItems} = useShoppingCart()
-     const { data, isLoading } = useDataContext();
+     const { data} = useDataContext();
 
-     if (isLoading) {
-    return <div className='mt-[50%] mb-[20rem] md:mt-[5%] w-fit mx-auto'>
-        <MoonLoader color='green'/>
-    </div>;
-  }
 
 
   return (

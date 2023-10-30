@@ -13,7 +13,7 @@ const remove = () => toast('Item Removed');
 
 export function CartItem ({id,}: CartItemProps) {
     const {getItemsQty, increaseCartQty, decreaseCartQty, removeFromCart} = useShoppingCart()
-         const { data, isLoading } = useDataContext();
+         const { data } = useDataContext();
     const qty =getItemsQty(id);
     const item = data?.find((i: { id: number; }) => i.id ===id)
     if (item == null) return null
