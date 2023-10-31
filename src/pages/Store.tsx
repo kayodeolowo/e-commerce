@@ -5,6 +5,9 @@ import { useDataContext } from '../context/ProductsProvider'
 import MoonLoader from 'react-spinners/MoonLoader'
 import axios from 'axios'
 
+
+
+
 const Store:React.FC = () => {
   const { data, isLoading, filterCategory } = useDataContext();
   const [categories, setCategories] = useState<string[]>([]);
@@ -34,23 +37,25 @@ const Store:React.FC = () => {
 
   return (
     <div>
-      <div className="w-fit mx-auto">
+      <div className="w-[90%] md:w-fit  mx-auto">
         <div className='mt-4'>
           <h1 className='text-center'> Shop by Categories</h1>
         </div>
       
-      <div className='flex flex-row space-x-2 mt-1'>
-      {categories.map((category, index) => (
-          <button
-            key={index}
-            onClick={() => handleCategoryClick(category)}
-            className={selectedCategory === category ? 'text-black bg-[#f1a457] rounded-md px-2  hover:bg-[#e1a66b] transition ease-in duration-300' : ' bg-gray-300 hover:bg-gray-400 transition ease-in duration-300 rounded-md px-2 '}
-          >
-             {category.charAt(0).toUpperCase() + category.slice(1)}
-          </button>
-        ))}
+     
       </div>
-      </div>
+      <div className='w-fit mx-auto space-x-2 '>
+        
+        {categories.map((category, index) => (
+            <button
+              key={index}
+              onClick={() => handleCategoryClick(category)}
+              className={selectedCategory === category ? 'text-black bg-[#f1a457] rounded-md px-2  hover:bg-[#e1a66b] transition ease-in duration-300 ' : ' bg-gray-300 hover:bg-gray-400 transition ease-in duration-300 rounded-md px-2 '}
+            >
+               {category.charAt(0).toUpperCase() + category.slice(1)}
+            </button>
+          ))}
+        </div>
       <div className='grid mt-8 gap-2 grid-cols-2 md:grid-cols-3 lg:grid-cols-5 xl:gap-x-4 transition duration-300 ease-in'>
         {data.map((item: any) => (
           <div key={item.id}>
