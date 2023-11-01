@@ -13,6 +13,9 @@ const Store:React.FC = () => {
   const [categories, setCategories] = useState<string[]>([]);
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
 
+
+
+
   useEffect(() => {
     const fetchCategories = async () => {
       const result = await axios.get('https://fakestoreapi.com/products/categories');
@@ -37,26 +40,30 @@ const Store:React.FC = () => {
 
   return (
     <div>
-      <div className="w-[90%] md:w-fit  mx-auto">
+      <div className="">
         <div className='mt-4'>
           <h1 className='text-center'> Shop by Categories</h1>
         </div>
       
      
       </div>
-      <div className='w-fit mx-auto space-x-2 '>
+      <div className='sm:w-fit w-[95%] mt-3 mx-auto flex overflow-auto whitespace-nowrap scrollbar-hide space-x-4 pb-4 sm:pb-0'>
         
         {categories.map((category, index) => (
-            <button
-              key={index}
-              onClick={() => handleCategoryClick(category)}
-              className={selectedCategory === category ? 'text-black bg-[#f1a457] rounded-md px-2  hover:bg-[#e1a66b] transition ease-in duration-300 ' : ' bg-gray-300 hover:bg-gray-400 transition ease-in duration-300 rounded-md px-2 '}
-            >
-               {category.charAt(0).toUpperCase() + category.slice(1)}
-            </button>
-          ))}
+ 
+ <p
+
+ key={index}
+ onClick={() => handleCategoryClick(category)}
+ className={selectedCategory === category ? 'text-black px-2 bg-[#f1a457] rounded-md hover:cursor-pointer  hover:bg-[#e1a66b] transition ease-in duration-300 ' : 'hover:cursor-pointer bg-gray-300 hover:bg-gray-400 transition ease-in  text-sm duration-300 rounded-md px-2 '}
+ 
+>
+ {category.charAt(0).toUpperCase() + category.slice(1)}
+</p>
+))}
+          
         </div>
-      <div className='grid mt-8 gap-2 grid-cols-2 md:grid-cols-3 lg:grid-cols-5 xl:gap-x-4 transition duration-300 ease-in'>
+      <div className='grid sm:mt-8 gap-2 grid-cols-2 md:grid-cols-3 lg:grid-cols-5 xl:gap-x-4 transition duration-300 ease-in'>
         {data.map((item: any) => (
           <div key={item.id}>
             <StoreItemCard {...item} />

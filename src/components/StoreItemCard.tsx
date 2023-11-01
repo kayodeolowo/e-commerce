@@ -50,7 +50,7 @@ export function StoreItemCard({ id, name, price, title, image, rating }: StoreIt
 
 
     return <div className="">
-        <div className=" shadow mx-auto px-2 rounded-lg hover:cursor-pointer hover:shadow-md w-[10rem]  sm:w-[12rem] mb-2 mt-4 py-2 ">
+        <div className=" shadow mx-auto px-2  rounded-lg hover:cursor-pointer hover:shadow-md w-[90%]  sm:w-[12rem] mb-2 mt-4 py-2 ">
 
             <img className="h-[6rem]  mx-auto" src={image} />
             <div className="flex items-center justify-between sm:space-x-2 mt-1">
