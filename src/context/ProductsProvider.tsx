@@ -25,11 +25,15 @@ export const DataProvider: React.FC<PropsWithChildren<{}>> = ({ children }) => {
     const result = await axios.get("https://fakestoreapi.com/products");
     setData(result.data);
     setIsLoading(false);
+    
   };
 
+  
   useEffect(() => {
     fetchData();
   }, []);
+
+
 
   // New function for category filtering
   const filterCategory = async (category: string) => {

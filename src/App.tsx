@@ -5,6 +5,7 @@ import { Home,  } from './pages';
 import { ShoppingCartProvider } from './context/ShoppingCartContext';
 import ShoppingCart from './components/ShoppingCart';
 import Footer from './components/Footer'
+import ProductDetails from './pages/ProductDetails';
  
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
       <Routes> 
         <Route path='/' element={<Home/>} />
         <Route path='/cart' element={<ShoppingCart/>} />
+        <Route path="/productDetails/:title" element={<ProductDetails/>} />
       </Routes>
       <Footer/>
       

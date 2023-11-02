@@ -3,6 +3,7 @@ import { Button } from "@material-tailwind/react";
 import { useShoppingCart } from "../context/ShoppingCartContext";
 import toast, { Toaster } from 'react-hot-toast';
 import { BsStarFill, BsStarHalf } from 'react-icons/bs';
+import { Link } from "react-router-dom";
 
 
 
@@ -47,12 +48,14 @@ export function StoreItemCard({ id, name, price, title, image, rating }: StoreIt
     
         return stars;
     };
+   
 
 
     return <div className="">
         <div className=" shadow mx-auto px-2  rounded-lg hover:cursor-pointer hover:shadow-md w-[90%]  sm:w-[12rem] mb-2 mt-4 py-2 ">
-
-            <img className="h-[6rem]  mx-auto" src={image} />
+       
+           <div>
+           <img className="h-[6rem]  mx-auto" src={image} alt="product-image" />
             <div className="flex items-center justify-between sm:space-x-2 mt-1">
                 <p style={titleStyle} className="text-sm sm:text-xs "> {title} </p>
             </div>
@@ -63,6 +66,9 @@ export function StoreItemCard({ id, name, price, title, image, rating }: StoreIt
                 {showRating()} {/* Display the rating */}
                 <span className="ml-1 text-xs  text-gray-400"> ({rating.count}) </span>
             </div>
+           </div>
+        
+          
             <div className="mt-2 w-fit mx-auto">
                 {qty === 0 ? (
                     <button className=" rounded-3xl px-2 text-xs text-gray-200 py-0.5  bg-[#2f9b77] hover:bg-[#5fbe9e] hover:text-[#013D29] transition duration-300 ease-in " onClick={() => { increaseCartQty(id); addToCart() }} > Add to Cart </button>

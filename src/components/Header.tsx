@@ -34,11 +34,9 @@ export default function Header() {
          </Link>
 
          
-         <Link to="/cart"> 
-                
-          </Link>
+         
         
-        <a href='http://localhost:3000/cart'>
+        <a href='https://krayastores.netlify.app/cart'>
         <div     className=' mt-[-1rem] ml-[-2rem] lg:mr-0 text-black fixed  '> 
                     <span  className='relative'>
                   <button   onClick={openCart}>  <img className='h-8 md:h-10 hover:shadow-2xl' src="./images/cart.png" />  </button>
