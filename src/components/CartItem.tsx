@@ -58,12 +58,7 @@ export function CartItem ({id,}: CartItemProps) {
                     }}/>
                     
                   
-                </div>
-               
-                 
-                   
-                   
-                    
+                </div>      
                 </div>
            </div>
         </div>
