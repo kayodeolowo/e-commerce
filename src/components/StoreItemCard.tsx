@@ -14,6 +14,7 @@ type StoreItemsProps = {
     price: number
     image: string
     title: string
+    description: string
     rating: { rate: number; count: number };
 }
 
@@ -24,7 +25,7 @@ const titleStyle: React.CSSProperties = {
     maxWidth: '100%',
 };
 
-export function StoreItemCard({ id, name, price, title, image, rating }: StoreItemsProps) {
+export function StoreItemCard({ id, name, price, title, image, rating, description }: StoreItemsProps) {
     const { getItemsQty, increaseCartQty, removeFromCart } = useShoppingCart()
     const remove = () => toast('Item Removed');
     const addToCart = () => toast.success('Added to Cart');
@@ -54,7 +55,8 @@ export function StoreItemCard({ id, name, price, title, image, rating }: StoreIt
     return <div className="">
         <div className=" shadow mx-auto px-2  rounded-lg hover:cursor-pointer hover:shadow-md w-[90%]  sm:w-[12rem] mb-2 mt-4 py-2 ">
        
-           <div>
+        <Link to={`/productDetails/${id}`}>
+          <div>
            <img className="h-[6rem]  mx-auto" src={image} alt="product-image" />
             <div className="flex items-center justify-between sm:space-x-2 mt-1">
                 <p style={titleStyle} className="text-sm sm:text-xs "> {title} </p>
@@ -67,6 +69,8 @@ export function StoreItemCard({ id, name, price, title, image, rating }: StoreIt
                 <span className="ml-1 text-xs  text-gray-400"> ({rating.count}) </span>
             </div>
            </div>
+           </Link>
+         
         
           
             <div className="mt-2 w-fit mx-auto">

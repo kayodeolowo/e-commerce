@@ -63,9 +63,10 @@ console.log(data)
       <div className='grid sm:mt-8 gap-2 grid-cols-2 md:grid-cols-3 lg:grid-cols-5 xl:gap-x-4 transition duration-300 ease-in'>
         {data.map((item: any) => (
           <div key={item.id}>
-            <StoreItemCard {...item} />
-           
             
+             <StoreItemCard {...item} /> 
+
+                    
           </div>
         ))}
       </div>
