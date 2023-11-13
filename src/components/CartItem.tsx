@@ -35,7 +35,11 @@ export function CartItem({ id, }: CartItemProps) {
                     <div className="flex space-x-2">
                         <img src={item.image} className="h-14 w-12 " />
                         <div className="flex flex-col space-y-0.5 md:hidden w-[95%] overflow-hidden">
-                            <h1   className="text-sm font-semibold  md:w-[15rem] truncate ">  {item.title} </h1>
+                           <div className="flex justify-between">
+                           <h1   className="text-sm font-semibold  md:w-[15rem] truncate ">  {item.title} </h1>
+                            <button onClick={() => { removeFromCart(item.id); remove() }}> <AiOutlineDelete className=" text-red-500"  />  </button>
+
+                           </div>
 
                             <div className="flex items-center justify-between ">
                                 {/* <p className="   text-sm font-semibold text-gray-600 "> {formatCurrency(item.price)}</p> */}
@@ -46,8 +50,7 @@ export function CartItem({ id, }: CartItemProps) {
                                     <button onClick={() => increaseCartQty(id)}>  <AiOutlinePlus/> </button>
                                 </div>
 
-                                <button onClick={() => { removeFromCart(item.id); remove() }}> <AiOutlineDelete className=" text-red-500"  />  </button>
-
+                               
                             </div>
                         </div>
                     </div>
