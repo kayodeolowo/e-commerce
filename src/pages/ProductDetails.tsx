@@ -47,7 +47,7 @@ const ProductDetails = () => {
 
       <div>
         <Link to="/">
-          <div className=' w-fit mt-4 sm:mt-0 ml-4 mr-auto'>
+          <div className=' w-fit mt-4  ml-4 mr-auto'>
             <button className=' border border-gray-400 bg-gray-200 hover:bg-gray-400 transition ease-in py-1  flex px-2 rounded items-center text-xs'> <span> <BsArrowLeftShort /> </span> Back </button>
           </div>
         </Link>
