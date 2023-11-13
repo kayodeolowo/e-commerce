@@ -41,12 +41,12 @@ export function CartItem({ id, }: CartItemProps) {
                                 {/* <p className="   text-sm font-semibold text-gray-600 "> {formatCurrency(item.price)}</p> */}
                                 <h1 className=" font-semibold text-gray-700 w-[10rem] text-xs ">  {formatCurrency(item.price * qty)}</h1>
                                 <div className=" flex items-center justify-start  text-sm w-[5rem] space-x-2   ">
-                                    <button onClick={() => decreaseCartQty(id)}> <RiSubtractFill  size={10}/> </button>
+                                    <button onClick={() => decreaseCartQty(id)}> <RiSubtractFill  /> </button>
                                     <h1 className="border px-1  text-[0.65rem]"> {qty}  </h1>
-                                    <button onClick={() => increaseCartQty(id)}>  <AiOutlinePlus size={10}/> </button>
+                                    <button onClick={() => increaseCartQty(id)}>  <AiOutlinePlus/> </button>
                                 </div>
 
-                                <button onClick={() => { removeFromCart(item.id); remove() }}> <AiOutlineDelete className=" text-red-500" size={13} />  </button>
+                                <button onClick={() => { removeFromCart(item.id); remove() }}> <AiOutlineDelete className=" text-red-500"  />  </button>
 
                             </div>
                         </div>
