@@ -41,10 +41,10 @@ export function CartItem({ id, }: CartItemProps) {
 
                            </div>
 
-                            <div className="flex items-center justify-between ">
+                            <div className="flex items-center justify-between pt-2 ">
                                 {/* <p className="   text-sm font-semibold text-gray-600 "> {formatCurrency(item.price)}</p> */}
                                 <h1 className=" font-semibold text-gray-700 w-[10rem] text-xs ">  {formatCurrency(item.price * qty)}</h1>
-                                <div className=" flex items-center justify-start  text-sm w-[5rem] space-x-2   ">
+                                <div className=" flex items-center justify-start  text-sm  space-x-2   ">
                                     <button onClick={() => decreaseCartQty(id)}> <RiSubtractFill  /> </button>
                                     <h1 className="border px-1  text-[0.65rem]"> {qty}  </h1>
                                     <button onClick={() => increaseCartQty(id)}>  <AiOutlinePlus/> </button>
