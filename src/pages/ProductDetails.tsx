@@ -43,7 +43,7 @@ const ProductDetails = () => {
 
 
   return (
-    <div className='container max-w-[1140px] mx-auto'>
+    <div className='container 2xl:max-w-[1300px] mx-auto'>
 
       <div>
         <Link to="/">

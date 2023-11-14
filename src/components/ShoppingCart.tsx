@@ -19,7 +19,7 @@ const ShoppingCart = () => {
 
 
   return (
-    <div className='mx-auto lg:mb-[20rem] px-4 md:px-0 container max-w-[1140px] '>
+    <div className='mx-auto lg:mb-[20rem] px-4 md:px-0 container 2xl:max-w-[1300px] '>
       <div className='md:pt-8'>
         {cartItems.map(item => (
           <CartItem key={item.id} {...item} />
